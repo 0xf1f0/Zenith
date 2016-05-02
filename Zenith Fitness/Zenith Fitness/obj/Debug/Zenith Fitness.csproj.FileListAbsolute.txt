@@ -1,0 +1,40 @@
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\csc.exe
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\vbc.exe
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\VBCSCompiler.exe
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.pdb
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.dll
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.pdb
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll.config
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\csc.exe
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\vbc.exe
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\VBCSCompiler.exe
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll.config
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.pdb
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.csprojResolveAssemblyReference.cache
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.dll
+C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.pdb
+C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.csprojResolveAssemblyReference.cache
