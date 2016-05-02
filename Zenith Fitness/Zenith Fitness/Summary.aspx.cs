@@ -86,7 +86,7 @@ namespace Zenith_Fitness
                             insertMember.Parameters.AddWithValue("@Username", username);
                             insertMember.Parameters.AddWithValue("@Password", pwd);
                             memberInserted = true;
-                            member_id = int.Parse(insertMember.ExecuteScalar().ToString()); //member_id for new members
+                            member_id = int.Parse(insertMember.ExecuteScalar().ToString()); //member_id for new member
 
                         }
                         memberTable.Close();

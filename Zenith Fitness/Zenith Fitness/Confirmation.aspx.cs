@@ -38,12 +38,14 @@ namespace Zenith_Fitness
                         membershipTable.Open();
                         //Insert values into the membership table
                         using (SqlCommand insertMembership = new SqlCommand("INSERT INTO [dbo].[Membership] (member_id, membership_name, membership_type, " +
-                        "membership_status) VALUES ('" + mem_id + "', '" + mem_name + "' ,'" + mem_type + "' , '" + mem_status + "')", membershipTable))
+                        "membership_status, membership_start, membership_end) VALUES ('" + mem_id + "', '" + mem_name + "' ,'" + mem_type + "' , '" + mem_status + "', '" + mem_Sdate + "', '" + mem_Edate + "')", membershipTable))
                         {
                             insertMembership.Parameters.AddWithValue("@mem_id", mem_id);
                             insertMembership.Parameters.AddWithValue("@mem_type", mem_type);
                             insertMembership.Parameters.AddWithValue("@mem_name", mem_name);
                             insertMembership.Parameters.AddWithValue("@mem_status", mem_status);
+                            insertMembership.Parameters.AddWithValue("@mem_sdate", mem_Sdate);
+                            insertMembership.Parameters.AddWithValue("@mem_edate", mem_Edate);
                             insertMembership.ExecuteScalar();
                             membershipInserted = true;
                         }

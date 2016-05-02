@@ -6,7 +6,7 @@
         <ul class="menu">
         <li><a href="Default.aspx">Home</a></li>
         <li><a href="Membership.aspx">Membership</a></li>
-        <li class="current"><a href="Trainings.aspx">Trainings</a></li>
+        <li class="current"><a href="Trainings.aspx">Training</a></li>
         <li><a href="Schedule.aspx">Schedule</a></li>
         <li><a href="Gallery.aspx">Gallery</a></li>
         <li><a href="Contacts.aspx">Contacts</a></li>
@@ -23,35 +23,37 @@
                 <div class="box-shadow">
                     <div class="wrap block-2">
                         <div class="col-3">
-                            <h2 class="p3"><span class="color-1">Main</span> programs</h2>
-                            <p class="p2"><strong>Nam liber tempor cum soluta nobis eleifend</strong></p>
-                            <p class="p4">Option congue nihil imperdiet doming id quod mazim placerat facer possim assum:</p>
+                         <h2 class="p3"><span class="color-1">Our</span> Equipment</h2>
+                            <p class="p2"><strong>At Zenith Fitness we take pride in our equipment</strong></p>
+                            <p class="p4">We want our clients to expect the best from us, so we gave the best to them:</p>
                             <ul class="list-2 p5">
-                                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                                <li><a href="#">Consectetuer adipiscing elitsed</a></li>
-                                <li><a href="#">Diam nonummy nibh</a></li>
-                                <li><a href="#">Euismod tincidunt ut laoreet</a></li>
-                                <li><a href="#">Dolore magna aliquamerat</a></li>
+                                <li>Power Racks</li>
+                                <li>Olympic Platforms</li>
+                                <li>Competition Bench Presses</li>
+                                <li>Spin Bikes</li>
+                                <li>Two Full Walls of Dumbells</li>
+                                <li>Wide Variety of Cardio Equiqment</li>
+                                <li>3 Fitness Rooms</li>
                             </ul>
-                            <p>Ut wisi enim adminim veniam quis nostrud exerci tation ullamcorper suscipit lobortis nisl.</p>
-                            <a href="#" class="button top-3">Join Today</a>
+                            <p>Check out the <a href="Gallery.aspx">gallery</a> and come take a tour of our facility</p>
+                            <a href="SelectMembership.aspx" class="button top-3">Join Today</a>
                         </div>
                         <div class="col-4">
-                            <h2 class="p3"><span class="color-1">Our</span> training</h2>
-                            <p class="p2"><strong>Nam liber tempor cum soluta nobis eleifend option congue nihil</strong></p>
-                            <p>Imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+                            <h2 class="p3"><span class="color-1">Our</span> Training</h2>
+                            <p class="p2"><strong>We have something for for everyone</strong></p>
+                            <p>With a large variety of machines, free weights and classes, there is something for everyone. </p>
                             <div class="wrap box-1 top-4">
                                 <img src="images/page2-img1.jpg" alt="" class="img-border img-indent">
                                 <div class="extra-wrap">
-                                    <p class="p2"><strong>Duis autem vel eum iriure dolor</strong></p>
-                                    <p>Hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilis lorem ipsum dolor.</p>
+                                    <p class="p2"><strong>Join our instructor-led classes</strong></p>
+                                    <p>Bring a friend and enjoy one of our classes such as yoga, cycling, tai chi, zumba, core training and pilates. The rooms are sound proofed so your session will be as peaceful as possible. Check out our <a href="Schedule.aspx">schedule</a> to see the list of classes for the week.</p>
                                 </div>
                             </div>
                             <div class="wrap box-1 top-2">
                                 <img src="images/page2-img2.jpg" alt="" class="img-border img-indent">
                                 <div class="extra-wrap">
-                                    <p class="p2"><strong>Ut wisi enim ad minim veniamis nostrud</strong></p>
-                                    <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim.</p>
+                                    <p class="p2"><strong>We welcome all levels of fitness </strong></p>
+                                    <p>Whether you are a powerlifter, bodybuilder, runner or someone just staying in shape, we have room for you in our gym. We just ask for everyone to be curtious to one another. </p>
                                 </div>
                             </div>
                         </div>

@@ -60,7 +60,7 @@
                     </td>
             </tr>
             <tr>
-                <td><a href="AdminLogin.aspx"><h3 style="text-align:center">Member? Click Here</h3></a>
+                <td><a href="MemberLogin.aspx"><h3 style="text-align:center">Member? Click Here</h3></a>
                     &nbsp;</td>
             </tr>
         </table>
