@@ -69,12 +69,11 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Site1.Master" />
-    <Content Include="Test.aspx" />
     <Content Include="SelectMembership.aspx" />
     <Content Include="Summary.aspx" />
-    <Content Include="Test1.aspx" />
     <Content Include="Confirmation.aspx" />
     <Content Include="AdminLogin.aspx" />
+    <Content Include="MemberAccount.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\demo.css" />
@@ -221,13 +220,6 @@
     <Compile Include="MessageSent.aspx.designer.cs">
       <DependentUpon>MessageSent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="SelectMembership.aspx.cs">
       <DependentUpon>SelectMembership.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -242,13 +234,6 @@
     <Compile Include="Summary.aspx.designer.cs">
       <DependentUpon>Summary.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Test1.aspx.cs">
-      <DependentUpon>Test1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test1.aspx.designer.cs">
-      <DependentUpon>Test1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Confirmation.aspx.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,6 +247,13 @@
     </Compile>
     <Compile Include="AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberAccount.aspx.cs">
+      <DependentUpon>MemberAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberAccount.aspx.designer.cs">
+      <DependentUpon>MemberAccount.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

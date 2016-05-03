@@ -19,7 +19,7 @@ namespace Zenith_Fitness
         {
             string user = tbxUser.Text;
             string pwd = tbxPwd.Text;
-
+            int mem_id;
             bool userFound = false;
 
             Validate("Login");
@@ -37,16 +37,14 @@ namespace Zenith_Fitness
                         {
                             checkUser.Parameters.AddWithValue("@Username", user);
                             checkUser.Parameters.AddWithValue("@Password", pwd);
-                            //compare the return value from checkAdmincmd; True >= 1, False < 1
+
                             userFound = ((int)checkUser.ExecuteScalar() > 0);
                         }
+
                         if (userFound) 
                         {
-                            HttpCookie login = new HttpCookie("userInfo");
-                            login["Username"] = user;
-                            login.Expires = DateTime.Now.AddDays(1);
-                            Response.Cookies.Add(login);
-                            Response.Redirect("Test.aspx");
+                            Session["Username"] = user;
+                            Response.Redirect("MemberAccount.aspx");
                         }
                         else
                         {
@@ -62,6 +60,21 @@ namespace Zenith_Fitness
                 {
                     lblEx.Text = ex.Message;
                     lblEx.Visible = true;
+                }
+
+                finally
+                {
+                    using (SqlConnection getUser = new SqlConnection(SqlDataSource1.ConnectionString))
+                    {
+                        getUser.Open();
+                        using (SqlCommand getID = new SqlCommand("Select member_id from dbo.[Member] where member_username = '" + user + "'", getUser))
+                        {
+                            mem_id = Convert.ToInt32(getID.ExecuteScalar());
+                        }
+                        getUser.Close();
+                    }
+
+                    Session["mem_id"] = mem_id;
                 }
 
             }
