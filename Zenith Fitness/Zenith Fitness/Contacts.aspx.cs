@@ -20,7 +20,6 @@ namespace Zenith_Fitness
             Validate("contactForm");
             if (Page.IsValid)
             {
-                bool msgSent = false;
                 try
                 {
                     SmtpClient smtp = new SmtpClient();
@@ -36,17 +35,16 @@ namespace Zenith_Fitness
 
                     smtp.Send(mail);
                     mail.DeliveryNotificationOptions = System.Net.Mail.DeliveryNotificationOptions.OnSuccess;
-                    msgSent = true;
                     Response.Redirect("MessageSent.aspx");
                 }
 
                 catch (SmtpException ex)
                 {
-                    msgSent = false;
                     ex.ToString();
                     lblMsg.Text = "Error sending message, please try again.";
                     lblMsg.ForeColor = System.Drawing.Color.Red;
                 }
+
             }
         }
 
