@@ -1,25 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Zenith_Fitness
 {
-    public partial class WebForm11 : System.Web.UI.Page
+    public partial class WebForm11 : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnPremium_Click(object sender, EventArgs e)
         {
-            double price = 29.99;
-            string type = "P";
-            string status = "Inactive";
-            string name = "Premium";
+            var price = 29.99;
+            var type = "P";
+            var status = "Inactive";
+            var name = "Premium";
 
             Session["Price"] = price;
             Session["Type"] = type;
@@ -30,10 +25,10 @@ namespace Zenith_Fitness
 
         protected void btnStandard_Click(object sender, EventArgs e)
         {
-            double price = 19.99;
-            string type = "S";
-            string status = "Inactive";
-            string name = "Standard";
+            var price = 19.99;
+            var type = "S";
+            var status = "Inactive";
+            var name = "Standard";
 
             Session["Price"] = price;
             Session["Type"] = type;

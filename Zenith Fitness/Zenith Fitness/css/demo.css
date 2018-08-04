@@ -1,74 +1,76 @@
 /*--------- slider ---------*/
 #slide {
-	width:940px;
-	height:415px;
-	position:relative;
-	overflow:hidden;
-	z-index:2;
+    height: 415px;
+    overflow: hidden;
+    position: relative;
+    width: 940px;
+    z-index: 2;
 }
+
 .gallery {
-	width:940px;
-	position:relative;
-	z-index:2
+    position: relative;
+    width: 940px;
+    z-index: 2
 }
-.items {
-	display:none;
-}
-.pag {
-	position:relative;
-}
+
+.items { display: none; }
+
+.pag { position: relative; }
+
 .img-pags {
-	position:static;
-	left:0px;
-	z-index:1;
-	display:block;
+    display: block;
+    left: 0px;
+    position: static;
+    z-index: 1;
 }
-.img-pags ul {
-	margin:0
-}
+
+.img-pags ul { margin: 0 }
+
 .img-pags li {
-	width:200px;
-	height:170px;
-	margin-right:20px;
-	display:block;
-	overflow:hidden;
+    display: block;
+    height: 170px;
+    margin-right: 20px;
+    overflow: hidden;
+    width: 200px;
 }
+
 .img-pags li a {
-	position:relative;
-	display:block;
-	border:#f4f4f4 5px solid;
+    border: #f4f4f4 5px solid;
+    display: block;
+    position: relative;
 }
-.img-pags li a img {
-}
+
+.img-pags li a img { }
+
 .img-pags li a span {
-	display:block;
-	background:#fff;
+    background: #fff;
+    display: block;
 }
-.img-pags li.active a, .img-pags li a:hover {
-	border:#CCC 5px solid;
-}
-.img-pags li.active a img, .img-pags li a:hover img {
-}
+
+.img-pags li.active a, .img-pags li a:hover { border: #CCC 5px solid; }
+
+.img-pags li.active a img, .img-pags li a:hover img { }
+
 .prev {
-	background:url(../images/prev-1.gif) 0 0 no-repeat;
-	bottom:1px;
-	left:1px;
-	display:block;
-	position:absolute;
-	width:44px;
-	height:44px;
-	z-index:9999;
+    background: url(../images/prev-1.gif) 0 0 no-repeat;
+    bottom: 1px;
+    display: block;
+    height: 44px;
+    left: 1px;
+    position: absolute;
+    width: 44px;
+    z-index: 9999;
 }
+
 .next {
-	background:url(../images/next-1.gif) 0 0 no-repeat;
-	bottom:1px;
-	right:1px;
-	display:block;
-	position:absolute;
-	width:44px;
-	height:44px;
-	z-index:9999;
+    background: url(../images/next-1.gif) 0 0 no-repeat;
+    bottom: 1px;
+    display: block;
+    height: 44px;
+    position: absolute;
+    right: 1px;
+    width: 44px;
+    z-index: 9999;
 }
-.prev:hover, .next:hover {
-	background-position: 0 bottom;
-}
+
+.prev:hover, .next:hover { background-position: 0 bottom; }

@@ -2,24 +2,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
+            height: 55px;
             width: 223px;
-            height: 55px;
         }
-        .auto-style2 {
-            height: 55px;
-        }
-        .auto-style3 {
-            height: 25px;
-        }
+
+        .auto-style2 { height: 55px; }
+
+        .auto-style3 { height: 25px; }
     </style>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div>
-        <br />
-        <table id="loginTable" >
+        <br/>
+        <table id="loginTable">
             <tr>
-                <td><h2 style="text-align: left; color: green;">Sign In to your Account</h2></td>
+                <td>
+                    <h2 style="color: green; text-align: left;">Sign In to your Account</h2>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -27,22 +27,24 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td style="height: 55px; width: auto; display:block">
+                <td style="display: block; height: 55px; width: auto;">
                     <asp:TextBox ID="tbxUser" runat="server" Placeholder="Enter Username" ForeColor="Black" Font-Bold="false" Font-Size="Large" Font-Names="Georgia" Height="40px" Width="300px" ToolTip="Username must begin with a letter, may contain digits, and 6-15 characters long"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                    </td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
                 <td>
                     <asp:RequiredFieldValidator ID="rfvUser" runat="server" ErrorMessage="Required" ValidationGroup="Login" ControlToValidate="tbxUser" ForeColor="Red" Height="40px"></asp:RequiredFieldValidator>
-                    &nbsp;</td>
+                    &nbsp;
+                </td>
             </tr>
             <tr>
                 <td style="height: 55px; width: auto;">
                     <asp:TextBox ID="tbxPwd" runat="server" Placeholder="Enter Password" ForeColor="Black" Font-Bold="false" Font-Size="Large" Font-Names="Georgia" Height="40px" Width="300px" TextMode="Password" ToolTip="Password must include at least one upper and lower case letter, digit, special character, and 8 characters long"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                    </td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
                 <td>
                     <asp:RequiredFieldValidator ID="rfvPwd" runat="server" ErrorMessage="Required" ValidationGroup="Login" ControlToValidate="tbxPwd" ForeColor="Red" Height="40px"></asp:RequiredFieldValidator>
-                    &nbsp;</td>
+                    &nbsp;
+                </td>
             </tr>
             <tr>
                 <td class="auto-style1">
@@ -57,11 +59,15 @@
                     <asp:Label ID="lblEx" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
                 </td>
                 <td class="auto-style3">
-                    </td>
+                </td>
             </tr>
             <tr>
-                <td><a href="MemberLogin.aspx"><h3 style="text-align:center">Member? Click Here</h3></a>
-                    &nbsp;</td>
+                <td>
+                    <a href="MemberLogin.aspx">
+                        <h3 style="text-align: center">Member? Click Here</h3>
+                    </a>
+                    &nbsp;
+                </td>
             </tr>
         </table>
     </div>

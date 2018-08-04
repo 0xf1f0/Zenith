@@ -5,21 +5,34 @@
 
     <nav>
         <ul class="menu">
-            <li><a href="Default.aspx">Home</a></li>
-            <li><a href="Membership.aspx">Membership</a></li>
-            <li><a href="Trainings.aspx">Trainings</a></li>
-            <li><a href="Schedule.aspx">Schedule</a></li>
-            <li><a href="Gallery.aspx">Gallery</a></li>
-            <li class="current"><a href="Contacts.aspx">Contacts</a></li>
+            <li>
+                <a href="Default.aspx">Home</a>
+            </li>
+            <li>
+                <a href="Membership.aspx">Membership</a>
+            </li>
+            <li>
+                <a href="Trainings.aspx">Trainings</a>
+            </li>
+            <li>
+                <a href="Schedule.aspx">Schedule</a>
+            </li>
+            <li>
+                <a href="Gallery.aspx">Gallery</a>
+            </li>
+            <li class="current">
+                <a href="Contacts.aspx">Contacts</a>
+            </li>
         </ul>
     </nav>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="NestedContentPlaceHolder1" runat="server">
     <section id="content" style="height: 550px">
-                <div class="box-shadow" style="left: 0px; top: 0px; width: 100%; height: auto">
-                        <h2 style="margin-top: 60px; text-align: center; color: green">Thank you for contacting us, we will get back to you shortly.
-                        </h2>
-                    </div>
+        <div class="box-shadow" style="height: auto; left: 0px; top: 0px; width: 100%;">
+            <h2 style="color: green; margin-top: 60px; text-align: center;">
+                Thank you for contacting us, we will get back to you shortly.
+            </h2>
+        </div>
     </section>
 </asp:Content>

@@ -4,20 +4,32 @@
     <!--==============================nav bar================================-->
     <nav>
         <ul class="menu">
-            <li><a href="Default.aspx">Home</a></li>
-            <li><a href="Membership.aspx">Membership</a></li>
-            <li><a href="Trainings.aspx">Training</a></li>
-            <li><a href="Schedule.aspx">Schedule</a></li>
-            <li><a href="Gallery.aspx">Gallery</a></li>
-            <li><a href="Contacts.aspx">Contacts</a></li>
+            <li>
+                <a href="Default.aspx">Home</a>
+            </li>
+            <li>
+                <a href="Membership.aspx">Membership</a>
+            </li>
+            <li>
+                <a href="Trainings.aspx">Training</a>
+            </li>
+            <li>
+                <a href="Schedule.aspx">Schedule</a>
+            </li>
+            <li>
+                <a href="Gallery.aspx">Gallery</a>
+            </li>
+            <li>
+                <a href="Contacts.aspx">Contacts</a>
+            </li>
         </ul>
     </nav>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="NestedContentPlaceHolder1" runat="server">
 
-    <br />
-    <div class="box-shadow" style="left: 0px; top: 0px; width: auto; height: auto">
-        <table id="premium" style="width: 60%; margin-left: 20%">
+    <br/>
+    <div class="box-shadow" style="height: auto; left: 0px; top: 0px; width: auto;">
+        <table id="premium" style="margin-left: 20%; width: 60%;">
             <tr>
                 <td style="height: 25px">
                     <h3 class="color-1">Monthly Premium Membership</h3>
@@ -52,10 +64,10 @@
             </tr>
             <tr>
                 <td style="text-align: left">
-                    <asp:Button ID="btnPremium" runat="server" Text="Select" Width="120px" Font-Size="Large" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CssClass="color-1" Height="40px" OnClick="btnPremium_Click" />
+                    <asp:Button ID="btnPremium" runat="server" Text="Select" Width="120px" Font-Size="Large" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CssClass="color-1" Height="40px" OnClick="btnPremium_Click"/>
                 </td>
                 <td style="text-align: left">
-                    <asp:Button ID="btnStandard" runat="server" Text="Select" Width="120px" Font-Size="Large" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CssClass="color-1" Height="40px" OnClick="btnStandard_Click" />
+                    <asp:Button ID="btnStandard" runat="server" Text="Select" Width="120px" Font-Size="Large" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CssClass="color-1" Height="40px" OnClick="btnStandard_Click"/>
                 </td>
             </tr>
             <tr>

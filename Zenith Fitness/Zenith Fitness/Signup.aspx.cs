@@ -1,41 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data.SqlClient;
+using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Zenith_Fitness
 {
-    public partial class WebForm6 : System.Web.UI.Page
+    public partial class WebForm6 : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Price"] == null)
-            {
-                Response.Redirect("SelectMembership.aspx");
-            }
+            if (Session["Price"] == null) Response.Redirect("SelectMembership.aspx");
         }
 
         protected void btnContinue_Click(object sender, EventArgs e)
         {
             try
             {
-                
-                using (SqlConnection createUser = new SqlConnection(SqlDataSource2.ConnectionString))
+                using (var createUser = new SqlConnection(SqlDataSource2.ConnectionString))
                 {
-                    bool userExists = false;    //Is the username already in database?
+                    var userExists = false; //Is the username already in database?
                     createUser.Open(); //Open the connection
 
                     // Check if the username exists in database 
-                    using (SqlCommand checkUsercmd = new SqlCommand("SELECT COUNT(*) " +
-                        "FROM [dbo].[Member] WHERE [member_username] = '" + tbxUsername.Text + "'", createUser))
+                    using (var checkUsercmd = new SqlCommand("SELECT COUNT(*) " +
+                                                             "FROM [dbo].[Member] WHERE [member_username] = '" +
+                                                             tbxUsername.Text + "'", createUser))
                     {
                         //Sql parameters to prevent sql injection
                         checkUsercmd.Parameters.AddWithValue("@Username", tbxUsername.Text);
                         //compare the return value from checkUsercmd; False >= , True = 0
-                        userExists = (int)checkUsercmd.ExecuteScalar() > 0;
+                        userExists = (int) checkUsercmd.ExecuteScalar() > 0;
                     }
 
                     if (userExists)
@@ -50,7 +44,7 @@ namespace Zenith_Fitness
                         if (Page.IsValid)
                         {
                             // Insert member info into member table
-                            HttpCookie cookie = new HttpCookie("memberInfo");
+                            var cookie = new HttpCookie("memberInfo");
                             //cookie.Values.Add("name", name);
                             cookie.Values.Add("fName", tbxFname.Text);
                             cookie.Values.Add("lName", tbxLname.Text);
@@ -72,10 +66,10 @@ namespace Zenith_Fitness
 
                             Response.Redirect("Summary.aspx");
                         }
+
                         createUser.Close();
                     }
                 }
-                
             }
 
             catch (Exception ex)

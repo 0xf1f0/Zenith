@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Web.UI;
 using System.Data.SqlClient;
+using System.Web.UI;
 
 namespace Zenith_Fitness
 {
@@ -8,7 +8,6 @@ namespace Zenith_Fitness
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -26,16 +25,18 @@ namespace Zenith_Fitness
 
                     // Verify that the Username and Password exist [Exact]
                     var userFound = false;
-                    using (var checkUser = new SqlCommand("Select count(*) from [dbo].Member where member_username='" + user + "'" +
-                                                          "AND member_password='" + pwd + "'" + " COLLATE SQL_Latin1_General_CP1_CS_AS", userLogin))
+                    using (var checkUser = new SqlCommand("Select count(*) from [dbo].Member where member_username='" +
+                                                          user + "'" +
+                                                          "AND member_password='" + pwd + "'" +
+                                                          " COLLATE SQL_Latin1_General_CP1_CS_AS", userLogin))
                     {
                         checkUser.Parameters.AddWithValue("@Username", user);
                         checkUser.Parameters.AddWithValue("@Password", pwd);
 
-                        userFound = ((int)checkUser.ExecuteScalar() > 0);
+                        userFound = (int) checkUser.ExecuteScalar() > 0;
                     }
 
-                    if (userFound) 
+                    if (userFound)
                     {
                         Session["Username"] = user;
                         Response.Redirect("MemberAccount.aspx");
@@ -56,21 +57,24 @@ namespace Zenith_Fitness
                 lblEx.Visible = true;
             }
 
-            finally
-            {
-                var memId = 0;
-                using (var getUser = new SqlConnection(SqlDataSource1.ConnectionString))
-                {
-                    getUser.Open();
-                    using (var getId = new SqlCommand("Select member_id from dbo.[Member] where member_username = '" + user + "'", getUser))
-                    {
-                        memId = Convert.ToInt32(getId.ExecuteScalar());
-                    }
-                    getUser.Close();
-                }
+            //finally
+            //{
+            //    int memId;
+            //    using (var getUser = new SqlConnection(SqlDataSource1.ConnectionString))
+            //    {
+            //        getUser.Open();
+            //        using (var getId =
+            //            new SqlCommand("Select member_id from dbo.[Member] where member_username = '" + user + "'",
+            //                getUser))
+            //        {
+            //            memId = Convert.ToInt32(getId.ExecuteScalar());
+            //        }
 
-                Session["mem_id"] = memId;
-            }
+            //        getUser.Close();
+            //    }
+
+            //    Session["mem_id"] = memId;
+            //}
         }
     }
 }

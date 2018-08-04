@@ -22,30 +22,32 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="main">
-            <div class="bg-img"></div>
-            <h1><a href="Default.aspx">Zenith<strong>Fitness</strong></a></h1>
-            <!--==============================header=================================-->
-            <!-- Nested master page1 starts here-->
-            <header>
-                <asp:ContentPlaceHolder ID="NavContentPlaceHolder" runat="server">
-                </asp:ContentPlaceHolder>
-            </header>
-            <!--==============================Main content================================-->
-
-            <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+<form id="form1" runat="server">
+    <div class="main">
+        <div class="bg-img"></div>
+        <h1>
+            <a href="Default.aspx">Zenith<strong>Fitness</strong></a>
+        </h1>
+        <!--==============================header=================================-->
+        <!-- Nested master page1 starts here-->
+        <header>
+            <asp:ContentPlaceHolder ID="NavContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
+        </header>
+        <!--==============================Main content================================-->
 
-            <!--==============================footer=================================-->
+        <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
 
-            <footer>
-                <p>© 2016 Zenith Fitness</p>
-                <p>Website Template by <a target="_blank" href="http://www.templatemonster.com/" class="link">TemplateMonster.com</a></p>
-            </footer>
+        <!--==============================footer=================================-->
 
-        </div>
-    </form>
-    <script>Cufon.now();</script>
+        <footer>
+            <p>© 2016 Zenith Fitness</p>
+            <p>Website Template by <a target="_blank" href="http://www.templatemonster.com/" class="link">TemplateMonster.com</a></p>
+        </footer>
+
+    </div>
+</form>
+<script>Cufon.now();</script>
 </body>
 </html>

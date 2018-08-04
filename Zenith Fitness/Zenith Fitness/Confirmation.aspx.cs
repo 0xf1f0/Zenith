@@ -1,44 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI;
 
 namespace Zenith_Fitness
 {
-    public partial class WebForm14 : System.Web.UI.Page
+    public partial class WebForm14 : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpCookie cookie = Request.Cookies["memberInfo"];
-            if (cookie != null || Session["Price"] != null && Session["Type"] != null && Session["Status"] != null && Session["Name"] != null && Session["member_id"] != null)
+            var cookie = Request.Cookies["memberInfo"];
+            if (cookie != null || Session["Price"] != null && Session["Type"] != null && Session["Status"] != null &&
+                Session["Name"] != null && Session["member_id"] != null)
             {
                 int orderNum;
-                string fName = Request.Cookies["memberInfo"]["fName"];
-                string Lname = Request.Cookies["memberInfo"]["lName"];
-                string mem_name = Session["Name"].ToString();
-                double mem_fee = double.Parse(Session["Price"].ToString());
-                string mem_type = Session["Type"].ToString();
-                string mem_status = Session["Status"].ToString();
-                string mem_Sdate = DateTime.Now.ToString("M/d/yyyy");
-                string mem_Edate = DateTime.Now.AddDays(+30).ToString("M/d/yyyy");
-                int mem_id = int.Parse(Session["member_id"].ToString());
+                var fName = Request.Cookies["memberInfo"]["fName"];
+                var Lname = Request.Cookies["memberInfo"]["lName"];
+                var mem_name = Session["Name"].ToString();
+                var mem_fee = double.Parse(Session["Price"].ToString());
+                var mem_type = Session["Type"].ToString();
+                var mem_status = Session["Status"].ToString();
+                var mem_Sdate = DateTime.Now.ToString("M/d/yyyy");
+                var mem_Edate = DateTime.Now.AddDays(+30).ToString("M/d/yyyy");
+                var mem_id = int.Parse(Session["member_id"].ToString());
 
                 try
                 {
-                    bool orderRetrieved = false;
-                    bool membershipInserted = false;
+                    var orderRetrieved = false;
+                    var membershipInserted = false;
 
                     //**********Insert Membership info into Membership table**********//
-                    using (SqlConnection membershipTable = new SqlConnection(SqlDataSource2.ConnectionString))
+                    using (var membershipTable = new SqlConnection(SqlDataSource2.ConnectionString))
                     {
                         membershipTable.Open();
                         //Insert values into the membership table
-                        using (SqlCommand insertMembership = new SqlCommand("INSERT INTO [dbo].[Membership] (member_id, membership_name, membership_type, " +
-                        "membership_status, membership_start, membership_end) VALUES ('" + mem_id + "', '" + mem_name + "' ,'" + mem_type + "' , '" + mem_status + "', '" + mem_Sdate + "', '" + mem_Edate + "')", membershipTable))
+                        using (var insertMembership = new SqlCommand(
+                            "INSERT INTO [dbo].[Membership] (member_id, membership_name, membership_type, " +
+                            "membership_status, membership_start, membership_end) VALUES ('" + mem_id + "', '" +
+                            mem_name + "' ,'" + mem_type + "' , '" + mem_status + "', '" + mem_Sdate + "', '" +
+                            mem_Edate + "')", membershipTable))
                         {
                             insertMembership.Parameters.AddWithValue("@mem_id", mem_id);
                             insertMembership.Parameters.AddWithValue("@mem_type", mem_type);
@@ -49,14 +49,15 @@ namespace Zenith_Fitness
                             insertMembership.ExecuteScalar();
                             membershipInserted = true;
                         }
+
                         membershipTable.Close();
                     }
 
                     //Order table sql connection
-                    using (SqlConnection orderTable = new SqlConnection(SqlDataSource1.ConnectionString))
+                    using (var orderTable = new SqlConnection(SqlDataSource1.ConnectionString))
                     {
                         orderTable.Open();
-                        using (SqlCommand insertOrder = new SqlCommand("Insert_Order", orderTable))
+                        using (var insertOrder = new SqlCommand("Insert_Order", orderTable))
                         {
                             insertOrder.CommandType = CommandType.StoredProcedure;
                             insertOrder.Parameters.AddWithValue("@member_id", mem_id);
@@ -65,9 +66,10 @@ namespace Zenith_Fitness
                             insertOrder.Parameters.Add("@order_id", SqlDbType.Int, 0, "order_id");
                             insertOrder.Parameters["@order_id"].Direction = ParameterDirection.Output;
                             insertOrder.ExecuteNonQuery();
-                            orderNum = (int)insertOrder.Parameters["@order_id"].Value;
+                            orderNum = (int) insertOrder.Parameters["@order_id"].Value;
                             orderRetrieved = true;
                         }
+
                         orderTable.Close();
                     }
 
@@ -92,7 +94,9 @@ namespace Zenith_Fitness
                 }
             }
             else
+            {
                 Response.Redirect("SelectMembership.aspx");
+            }
         }
     }
 }

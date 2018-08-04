@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data.SqlClient;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 
 namespace Zenith_Fitness
 {
-    public partial class WebForm12 : System.Web.UI.Page
+    public partial class WebForm12 : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpCookie cookie = Request.Cookies["memberInfo"];
+            var cookie = Request.Cookies["memberInfo"];
             if (cookie != null)
             {
                 lblAmtdue.Text = "$" + Session["Price"];
@@ -27,7 +24,7 @@ namespace Zenith_Fitness
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             //Clear all the cookies
-            HttpCookie cookie = new HttpCookie("memberInfo");
+            var cookie = new HttpCookie("memberInfo");
             cookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(cookie);
             Response.Redirect("Default.aspx");
@@ -36,39 +33,42 @@ namespace Zenith_Fitness
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             // Write new member information into the database
-            HttpCookie cookie = Request.Cookies["memberInfo"];
+            var cookie = Request.Cookies["memberInfo"];
             if (cookie != null)
             {
-                int  member_id = 0;
-                string fName = Request.Cookies["memberInfo"]["fName"];
-                string lName = Request.Cookies["memberInfo"]["lName"];
-                string mi = Request.Cookies["memberInfo"]["MI"];
-                string email = Request.Cookies["memberInfo"]["Email"];
-                string address = Request.Cookies["memberInfo"]["Address"];
-                string city = Request.Cookies["memberInfo"]["City"];
-                string state = Request.Cookies["memberInfo"]["State"];
-                string zip = Request.Cookies["memberInfo"]["Zip"];
-                string age = Request.Cookies["memberInfo"]["Age"];
-                string gender = Request.Cookies["memberInfo"]["Gender"];
-                string cellPhone = Request.Cookies["memberInfo"]["Cellphone"];
-                string homePhone = Request.Cookies["memberInfo"]["Homephone"];
-                string how = Request.Cookies["memberInfo"]["How"];
-                string username = Request.Cookies["memberInfo"]["Username"];
-                string pwd = Request.Cookies["memberInfo"]["Password"];
+                var member_id = 0;
+                var fName = Request.Cookies["memberInfo"]["fName"];
+                var lName = Request.Cookies["memberInfo"]["lName"];
+                var mi = Request.Cookies["memberInfo"]["MI"];
+                var email = Request.Cookies["memberInfo"]["Email"];
+                var address = Request.Cookies["memberInfo"]["Address"];
+                var city = Request.Cookies["memberInfo"]["City"];
+                var state = Request.Cookies["memberInfo"]["State"];
+                var zip = Request.Cookies["memberInfo"]["Zip"];
+                var age = Request.Cookies["memberInfo"]["Age"];
+                var gender = Request.Cookies["memberInfo"]["Gender"];
+                var cellPhone = Request.Cookies["memberInfo"]["Cellphone"];
+                var homePhone = Request.Cookies["memberInfo"]["Homephone"];
+                var how = Request.Cookies["memberInfo"]["How"];
+                var username = Request.Cookies["memberInfo"]["Username"];
+                var pwd = Request.Cookies["memberInfo"]["Password"];
 
                 try
                 {
-                    bool memberInserted = false;
+                    var memberInserted = false;
                     //Member table sql connection
-                    using (SqlConnection memberTable = new SqlConnection(SqlDataSource1.ConnectionString))
+                    using (var memberTable = new SqlConnection(SqlDataSource1.ConnectionString))
                     {
                         memberTable.Open();
                         //Insert values into the member table
-                        using (SqlCommand insertMember = new SqlCommand("INSERT INTO [dbo].[Member] " + "(member_fname, member_lname, member_mi, " +
-                        "member_email, member_address, member_city, member_state, member_zipcode, member_age, member_gender, member_cellphone, " +
-                        "member_homephone, member_how,member_username,member_password) VALUES ('" + fName + "', '" + lName + "' , '" + mi + "', '" + email + "', '" + address + "', '" +
-                        city + "', '" + state + "' , '" + zip + "', '" + age + "', '" + gender + "', '" + cellPhone + "', '" + homePhone + "', '" + how + "', '" + username + "', '" + pwd + "');"
-                        + "select member_id=SCOPE_IDENTITY()", memberTable))
+                        using (var insertMember = new SqlCommand(
+                            "INSERT INTO [dbo].[Member] " + "(member_fname, member_lname, member_mi, " +
+                            "member_email, member_address, member_city, member_state, member_zipcode, member_age, member_gender, member_cellphone, " +
+                            "member_homephone, member_how,member_username,member_password) VALUES ('" + fName + "', '" +
+                            lName + "' , '" + mi + "', '" + email + "', '" + address + "', '" +
+                            city + "', '" + state + "' , '" + zip + "', '" + age + "', '" + gender + "', '" +
+                            cellPhone + "', '" + homePhone + "', '" + how + "', '" + username + "', '" + pwd + "');"
+                            + "select member_id=SCOPE_IDENTITY()", memberTable))
                         {
                             insertMember.Parameters.AddWithValue("@fName", fName);
                             insertMember.Parameters.AddWithValue("@lName", lName);
@@ -87,10 +87,9 @@ namespace Zenith_Fitness
                             insertMember.Parameters.AddWithValue("@Password", pwd);
                             memberInserted = true;
                             member_id = int.Parse(insertMember.ExecuteScalar().ToString()); //member_id for new member
-
                         }
+
                         memberTable.Close();
-                     
                     }
 
                     if (memberInserted)

@@ -93,3 +93,4 @@ C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenit
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.dll
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.pdb
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll.config
+C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.csprojAssemblyReference.cache

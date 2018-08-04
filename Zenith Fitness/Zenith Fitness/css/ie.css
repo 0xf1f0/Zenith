@@ -1,7 +1,6 @@
-*+html {
-	overflow:auto;
-}
+* + html { overflow: auto; }
+
 .box-shadow {
-	behavior:url("../js/PIE.htc");
-	position:relative;
+    behavior: url("../js/PIE.htc");
+    position: relative;
 }

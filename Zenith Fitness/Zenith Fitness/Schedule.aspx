@@ -5,12 +5,24 @@
     <nav>
 
         <ul class="menu">
-            <li><a href="Default.aspx">Home</a></li>
-            <li><a href="Membership.aspx">Membership</a></li>
-            <li><a href="Trainings.aspx">Training</a></li>
-            <li class="current"><a href="Schedule.aspx">Schedule</a></li>
-            <li><a href="Gallery.aspx">Gallery</a></li>
-            <li><a href="Contacts.aspx">Contacts</a></li>
+            <li>
+                <a href="Default.aspx">Home</a>
+            </li>
+            <li>
+                <a href="Membership.aspx">Membership</a>
+            </li>
+            <li>
+                <a href="Trainings.aspx">Training</a>
+            </li>
+            <li class="current">
+                <a href="Schedule.aspx">Schedule</a>
+            </li>
+            <li>
+                <a href="Gallery.aspx">Gallery</a>
+            </li>
+            <li>
+                <a href="Contacts.aspx">Contacts</a>
+            </li>
         </ul>
     </nav>
 </asp:Content>
@@ -26,19 +38,25 @@
                             <h2 class="p3"><span class="color-1">Our</span> schedule</h2>
                             <div class="wrap box-2 border-1">
                                 <div>
-                                    <p><strong>Monday</strong></p>
+                                    <p>
+                                        <strong>Monday</strong>
+                                    </p>
                                     <p class="color-1">9:30 - Pilates</p>
                                     <p>A class dedicated to increase your strength and flexibility while remaining upbeat. (50 min)</p>
                                     <p>Fitness Room A</p>
                                 </div>
                                 <div>
-                                    <p><strong>Wednesday</strong></p>
+                                    <p>
+                                        <strong>Wednesday</strong>
+                                    </p>
                                     <p class="color-1">10:00 - Yoga</p>
                                     <p>Create a flow through your body to calm the mind and increase energy. All levels are welcomed. (55 min)</p>
                                     <p>Fitness Room B</p>
                                 </div>
                                 <div class="last">
-                                    <p><strong>Friday</strong></p>
+                                    <p>
+                                        <strong>Friday</strong>
+                                    </p>
                                     <p class="color-1">9:30 - Tai Chi</p>
                                     <p>Slow movements with an emphasis on slow breathing allow you to work on posture and core stability. (55 min)</p>
                                     <p>Fitness Room C</p>
@@ -81,7 +99,9 @@
                         </div>
                         <div class="col-2">
                             <h2 class="p3"><span class="color-1">Events</span> Schedule</h2>
-                            <p class="p2"><strong>Come join our classes</strong></p>
+                            <p class="p2">
+                                <strong>Come join our classes</strong>
+                            </p>
                             <p>We offer a variety of classes for all members. Enjoy a great workout with guided instruction from a qualified professional</p>
                             <img src="images/page3-img1.jpg" alt="" class="img-border pad-1">
 

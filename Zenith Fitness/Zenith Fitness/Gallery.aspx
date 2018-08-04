@@ -3,14 +3,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MenuContentPlaceHolder1" runat="server">
     <!--==============================nav bar================================-->
     <nav>
-                    
+
         <ul class="menu">
-        <li><a href="Default.aspx">Home</a></li>
-        <li><a href="Membership.aspx">Membership</a></li>
-        <li><a href="Trainings.aspx">Trainings</a></li>
-        <li><a href="Schedule.aspx">Schedule</a></li>
-        <li class="current"><a href="Gallery.aspx">Gallery</a></li>
-        <li><a href="Contacts.aspx">Contacts</a></li>
+            <li>
+                <a href="Default.aspx">Home</a>
+            </li>
+            <li>
+                <a href="Membership.aspx">Membership</a>
+            </li>
+            <li>
+                <a href="Trainings.aspx">Trainings</a>
+            </li>
+            <li>
+                <a href="Schedule.aspx">Schedule</a>
+            </li>
+            <li class="current">
+                <a href="Gallery.aspx">Gallery</a>
+            </li>
+            <li>
+                <a href="Contacts.aspx">Contacts</a>
+            </li>
         </ul>
     </nav>
 </asp:Content>
@@ -24,21 +36,29 @@
                     <div class="gallery">
                         <ul class="items">
                             <li>
-                                <img src="images/gallery-big-1.jpg" alt=""></li>
+                                <img src="images/gallery-big-1.jpg" alt="">
+                            </li>
                             <li>
-                                <img src="images/gallery-big-5.jpg" alt=""></li>
+                                <img src="images/gallery-big-5.jpg" alt="">
+                            </li>
                             <li>
-                                <img src="images/gallery-big-2.jpg" alt=""></li>
+                                <img src="images/gallery-big-2.jpg" alt="">
+                            </li>
                             <li>
-                                <img src="images/gallery-big-6.jpg" alt=""></li>
+                                <img src="images/gallery-big-6.jpg" alt="">
+                            </li>
                             <li>
-                                <img src="images/gallery-big-3.jpg" alt=""></li>
+                                <img src="images/gallery-big-3.jpg" alt="">
+                            </li>
                             <li>
-                                <img src="images/gallery-big-7.jpg" alt=""></li>
+                                <img src="images/gallery-big-7.jpg" alt="">
+                            </li>
                             <li>
-                                <img src="images/gallery-big-4.jpg" alt=""></li>
+                                <img src="images/gallery-big-4.jpg" alt="">
+                            </li>
                             <li>
-                                <img src="images/gallery-big-8.jpg" alt=""></li>
+                                <img src="images/gallery-big-8.jpg" alt="">
+                            </li>
                         </ul>
                     </div>
                     <a href="#" class="prev"></a><a href="#" class="next"></a>
@@ -50,22 +70,62 @@
                     <div class="pag">
                         <div class="img-pags">
                             <ul>
-                                <li><a href="Default.aspx"><span>
-                                    <img src="images/gallery-1.jpg" alt=""></span></a></li>
-                                <li><a href="#"><span>
-                                    <img src="images/gallery-5.jpg" alt=""></span></a></li>
-                                <li><a href="#"><span>
-                                    <img src="images/gallery-2.jpg" alt=""></span></a></li>
-                                <li><a href="#"><span>
-                                    <img src="images/gallery-6.jpg" alt=""></span></a></li>
-                                <li><a href="#"><span>
-                                    <img src="images/gallery-3.jpg" alt=""></span></a></li>
-                                <li><a href="#"><span>
-                                    <img src="images/gallery-7.jpg" alt=""></span></a></li>
-                                <li><a href="#"><span>
-                                    <img src="images/gallery-4.jpg" alt=""></span></a></li>
-                                <li><a href="#"><span>
-                                    <img src="images/gallery-8.jpg" alt=""></span></a></li>
+                                <li>
+                                    <a href="Default.aspx">
+                                        <span>
+                                            <img src="images/gallery-1.jpg" alt="">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>
+                                            <img src="images/gallery-5.jpg" alt="">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>
+                                            <img src="images/gallery-2.jpg" alt="">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>
+                                            <img src="images/gallery-6.jpg" alt="">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>
+                                            <img src="images/gallery-3.jpg" alt="">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>
+                                            <img src="images/gallery-7.jpg" alt="">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>
+                                            <img src="images/gallery-4.jpg" alt="">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>
+                                            <img src="images/gallery-8.jpg" alt="">
+                                        </span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -82,30 +142,30 @@
 
 
     <script>
-    $(document)
-        .ready(function () {
-        $('.gallery')
-            ._TMS({
-            show: 0,
-            pauseOnHover: true,
-            prevBu: '.prev',
-            nextBu: '.next',
-            playBu: '.play',
-            duration: 700,
-            preset: 'fade',
-            pagination: $('.img-pags')
-                .uCarousel({
-                show: 4,
-                shift: 0
-            }),
-            pagNums: false,
-            slideshow: 7000,
-            numStatus: true,
-            banners: false,
-            waitBannerAnimation: false,
-            progressBar: false
-        })
-    })
+        $(document)
+            .ready(function() {
+                $('.gallery')
+                    ._TMS({
+                        show: 0,
+                        pauseOnHover: true,
+                        prevBu: '.prev',
+                        nextBu: '.next',
+                        playBu: '.play',
+                        duration: 700,
+                        preset: 'fade',
+                        pagination: $('.img-pags')
+                            .uCarousel({
+                                show: 4,
+                                shift: 0
+                            }),
+                        pagNums: false,
+                        slideshow: 7000,
+                        numStatus: true,
+                        banners: false,
+                        waitBannerAnimation: false,
+                        progressBar: false
+                    });
+            })
 
-</script>
+    </script>
 </asp:Content>

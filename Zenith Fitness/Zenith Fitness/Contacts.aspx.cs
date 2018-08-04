@@ -1,50 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Drawing;
 using System.Net.Mail;
+using System.Web.UI;
 
 namespace Zenith_Fitness
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class WebForm4 : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnSend_Click(object sender, EventArgs e)
         {
             Validate("contactForm");
-            if (Page.IsValid)
+            if (!Page.IsValid) return;
+            try
             {
-                try
+                var smtp = new SmtpClient();
+                var mail = new MailMessage
                 {
-                    SmtpClient smtp = new SmtpClient();
-                    MailMessage mail = new MailMessage();
-                    mail.From = new MailAddress(email.Text);
-                    mail.To.Add("zfit411@gmail.com");
-                    mail.Subject = ("Question from ZenithFit ASP.NET");
-                    mail.IsBodyHtml = true;
-                    mail.Body = "From: " + fName.Text + " " + lName.Text + "<br />" +
-                                "Email: " + email.Text + "<br />" +
-                                "Phone Number: " + phone.Text + "<br />" +
-                                "Message: " + message.Text + "<br />";
+                    From = new MailAddress(email.Text)
+                };
+                mail.To.Add("youremail@gmail.com");
+                mail.Subject = "Question from ZenithFit ASP.NET";
+                mail.IsBodyHtml = true;
+                mail.Body = "From: " + fName.Text + " " + lName.Text + "<br />" +
+                            "Email: " + email.Text + "<br />" +
+                            "Phone Number: " + phone.Text + "<br />" +
+                            "Message: " + message.Text + "<br />";
 
-                    smtp.Send(mail);
-                    mail.DeliveryNotificationOptions = System.Net.Mail.DeliveryNotificationOptions.OnSuccess;
-                    Response.Redirect("MessageSent.aspx");
-                }
+                smtp.Send(mail);
+                mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+                Response.Redirect("MessageSent.aspx");
+            }
 
-                catch (SmtpException ex)
-                {
-                    ex.ToString();
-                    lblMsg.Text = "Error sending message, please try again.";
-                    lblMsg.ForeColor = System.Drawing.Color.Red;
-                }
-
+            catch (SmtpException ex)
+            {
+                Console.Write(ex.Message);
+                lblMsg.Text = "Error sending message, please try again.";
+                lblMsg.ForeColor = Color.Red;
             }
         }
 

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data.SqlClient;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 
 namespace Zenith_Fitness
 {
-    public partial class WebForm16 : System.Web.UI.Page
+    public partial class WebForm16 : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,16 +15,17 @@ namespace Zenith_Fitness
             if (Session["Username"] != null)
             {
                 currentUser.Text = Session["Username"].ToString();
-                int mem_id = int.Parse(Session["mem_id"].ToString());
+                var memId = int.Parse(Session["mem_id"].ToString());
 
-                using (SqlConnection userAcct = new SqlConnection(SqlDataSource1.ConnectionString))
+                using (var userAcct = new SqlConnection(SqlDataSource1.ConnectionString))
                 {
                     userAcct.Open();
                     // Retrieve member's membership information
-                    using (SqlCommand checkUser = new SqlCommand("SELECT [member_id] ,[membership_name] " +
-                    ",[membership_status], [membership_start], [membership_end] FROM[dbo].[Membership] WHERE [member_id] = '" + mem_id + "'", userAcct))
+                    using (var checkUser = new SqlCommand("SELECT [member_id] ,[membership_name] " +
+                                                          ",[membership_status], [membership_start], [membership_end] FROM[dbo].[Membership] WHERE [member_id] = '" +
+                                                          memId + "'", userAcct))
                     {
-                        SqlDataReader reader = checkUser.ExecuteReader();
+                        var reader = checkUser.ExecuteReader();
                         while (reader.Read())
                         {
                             lblPlan.Text = reader["membership_name"].ToString();
