@@ -16,49 +16,47 @@ namespace Zenith_Fitness
             var user = tbxUser.Text;
             var pwd = tbxPwd.Text;
 
+            const string cmd1 = "Select count(*) from [dbo].Admin where admin_username = @Username AND admin_password = @Password COLLATE SQL_Latin1_General_CP1_CS_AS;";
+            const string cmd2 = "Select admin_id from dbo.[Admin] where admin_username = @Username1;";
+
             Validate("Login");
             if (!Page.IsValid) return;
-            try
+            using (var userLogin = new SqlConnection(SqlDataSource1.ConnectionString))
             {
-                using (var userLogin = new SqlConnection(SqlDataSource1.ConnectionString))
+
+                // Verify that the Username and Password exist [Exact]
+                var checkUser = new SqlCommand(cmd1, userLogin);
+                checkUser.Parameters.AddWithValue("@Username", user);
+                checkUser.Parameters.AddWithValue("@Password", pwd);
+                try
                 {
                     userLogin.Open();
-
-                    // Verify that the Username and Password exist [Exact]
-                    var userFound = false;
-                    using (var checkUser = new SqlCommand(
-                        "Select count(*) from [dbo].Admin where admin_username='" + user + "'" +
-                        "AND admin_password='" + pwd + "'" + " COLLATE SQL_Latin1_General_CP1_CS_AS", userLogin))
-                    {
-                        checkUser.Parameters.AddWithValue("@Username", user);
-                        checkUser.Parameters.AddWithValue("@Password", pwd);
-                        userFound = (int) checkUser.ExecuteScalar() > 0;
-                    }
+                    var userFound = (int)checkUser.ExecuteScalar() > 0;
 
                     if (userFound)
                     {
-                        var login = new HttpCookie("userInfo")
-                        {
-                            ["Username"] = user,
-                            Expires = DateTime.Now.AddDays(1)
-                        };
-                        Response.Cookies.Add(login);
-                        Response.Redirect("Test.aspx");
+                        Session["Username"] = user;
+                        var getId = new SqlCommand(cmd2, userLogin);
+                        getId.Parameters.AddWithValue("@Username1", user);
+                        var memId = Convert.ToInt32(getId.ExecuteScalar());
+                        Session["mem_id"] = memId;
+                        Response.Redirect("MemberAccount.aspx");
                     }
                     else
                     {
                         lblEx.Text = "Invalid username and/or password";
                         lblEx.Visible = true;
                     }
+                }
 
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
                     userLogin.Close();
                 }
-            }
-
-            catch (Exception ex)
-            {
-                lblEx.Text = ex.Message;
-                lblEx.Visible = true;
             }
         }
     }
