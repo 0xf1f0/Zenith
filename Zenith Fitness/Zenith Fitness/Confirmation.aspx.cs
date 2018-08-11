@@ -13,84 +13,80 @@ namespace Zenith_Fitness
             if (cookie != null || Session["Price"] != null && Session["Type"] != null && Session["Status"] != null &&
                 Session["Name"] != null && Session["member_id"] != null)
             {
-                int orderNum;
-                var fName = Request.Cookies["memberInfo"]["fName"];
-                var Lname = Request.Cookies["memberInfo"]["lName"];
-                var mem_name = Session["Name"].ToString();
-                var mem_fee = double.Parse(Session["Price"].ToString());
-                var mem_type = Session["Type"].ToString();
-                var mem_status = Session["Status"].ToString();
-                var mem_Sdate = DateTime.Now.ToString("M/d/yyyy");
-                var mem_Edate = DateTime.Now.AddDays(+30).ToString("M/d/yyyy");
-                var mem_id = int.Parse(Session["member_id"].ToString());
+                var fName = Request.Cookies["memberInfo"]?["fName"];
+                var lname = Request.Cookies["memberInfo"]?["lName"];
+                var memName = Session["Name"].ToString();
+                var memFee = double.Parse(Session["Price"].ToString());
+                var memType = Session["Type"].ToString();
+                var memStatus = Session["Status"].ToString();
+                var memSdate = DateTime.Now.ToString("M/d/yyyy");
+                var memEdate = DateTime.Now.AddDays(+30).ToString("M/d/yyyy");
+                var memId = int.Parse(Session["member_id"].ToString());
 
-                try
+                const string cmd1 = "INSERT INTO [dbo].[Membership] (member_id, membership_name, membership_type, membership_status, membership_start, membership_end) " +
+                                    "VALUES ('@mem_id', '@mem_name', '@mem_type', '@mem_status', '@mem_sdate', '@mem_edate');";
+                //Insert Membership info into Membership table
+                using (var membershipTable = new SqlConnection(SqlDataSource2.ConnectionString))
                 {
-                    var orderRetrieved = false;
-                    var membershipInserted = false;
-
-                    //**********Insert Membership info into Membership table**********//
-                    using (var membershipTable = new SqlConnection(SqlDataSource2.ConnectionString))
+                    membershipTable.Open();
+                    //Insert values into the membership table
+                    try
                     {
-                        membershipTable.Open();
-                        //Insert values into the membership table
-                        using (var insertMembership = new SqlCommand(
-                            "INSERT INTO [dbo].[Membership] (member_id, membership_name, membership_type, " +
-                            "membership_status, membership_start, membership_end) VALUES ('" + mem_id + "', '" +
-                            mem_name + "' ,'" + mem_type + "' , '" + mem_status + "', '" + mem_Sdate + "', '" +
-                            mem_Edate + "')", membershipTable))
-                        {
-                            insertMembership.Parameters.AddWithValue("@mem_id", mem_id);
-                            insertMembership.Parameters.AddWithValue("@mem_type", mem_type);
-                            insertMembership.Parameters.AddWithValue("@mem_name", mem_name);
-                            insertMembership.Parameters.AddWithValue("@mem_status", mem_status);
-                            insertMembership.Parameters.AddWithValue("@mem_sdate", mem_Sdate);
-                            insertMembership.Parameters.AddWithValue("@mem_edate", mem_Edate);
-                            insertMembership.ExecuteScalar();
-                            membershipInserted = true;
-                        }
+                        var insertMembership = new SqlCommand(cmd1, membershipTable);
+                        insertMembership.Parameters.AddWithValue("@mem_id", memId);
+                        insertMembership.Parameters.AddWithValue("@mem_type", memType);
+                        insertMembership.Parameters.AddWithValue("@mem_name", memName);
+                        insertMembership.Parameters.AddWithValue("@mem_status", memStatus);
+                        insertMembership.Parameters.AddWithValue("@mem_sdate", memSdate);
+                        insertMembership.Parameters.AddWithValue("@mem_edate", memEdate);
+                        insertMembership.ExecuteScalar();
 
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Write($"Insert Membership Log: {0}", ex.Message);
+                    }
+                    finally
+                    {
                         membershipTable.Close();
                     }
-
-                    //Order table sql connection
-                    using (var orderTable = new SqlConnection(SqlDataSource1.ConnectionString))
+                }
+                //Order table sql connection
+                using (var orderTable = new SqlConnection(SqlDataSource1.ConnectionString))
+                {
+                    orderTable.Open();
+                    try
                     {
-                        orderTable.Open();
-                        using (var insertOrder = new SqlCommand("Insert_Order", orderTable))
-                        {
-                            insertOrder.CommandType = CommandType.StoredProcedure;
-                            insertOrder.Parameters.AddWithValue("@member_id", mem_id);
-                            insertOrder.Parameters.AddWithValue("@order_amount", mem_fee);
-                            insertOrder.Parameters.AddWithValue("@order_date", mem_Sdate);
-                            insertOrder.Parameters.Add("@order_id", SqlDbType.Int, 0, "order_id");
-                            insertOrder.Parameters["@order_id"].Direction = ParameterDirection.Output;
-                            insertOrder.ExecuteNonQuery();
-                            orderNum = (int) insertOrder.Parameters["@order_id"].Value;
-                            orderRetrieved = true;
-                        }
+                        var insertOrder =
+                            new SqlCommand("Insert_Order", orderTable) {CommandType = CommandType.StoredProcedure};
+                        insertOrder.Parameters.AddWithValue("@member_id", memId);
+                        insertOrder.Parameters.AddWithValue("@order_amount", memFee);
+                        insertOrder.Parameters.AddWithValue("@order_date", memSdate);
+                        insertOrder.Parameters.Add("@order_id", SqlDbType.Int, 0, "order_id");
+                        insertOrder.Parameters["@order_id"].Direction = ParameterDirection.Output;
+                        insertOrder.ExecuteNonQuery();
+                        var orderNum = (int) insertOrder.Parameters["@order_id"].Value;
 
+                        //(!orderRetrieved || !membershipInserted) return
+                        lblOrdernum.Text = orderNum.ToString();
+                        lblName.Text = fName + " " + lname;
+                        lblStatus.Text = memStatus;
+                        lblMname.Text = memName;
+                        lblFee.Text = $"{memFee:C}";
+                        lblStatus.Text = memStatus;
+                        lblSdate.Text = memSdate;
+                        lblEdate.Text = memEdate;
+                        lblAmtdue.Text = lblFee.Text;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Write($"Insert Order Log: {0}", ex.Message);
+                    }
+                    finally
+                    {
                         orderTable.Close();
                     }
 
-                    if (orderRetrieved && membershipInserted)
-                    {
-                        lblOrdernum.Text = orderNum.ToString();
-                        lblName.Text = fName + " " + Lname;
-                        lblStatus.Text = mem_status;
-                        lblMname.Text = mem_name;
-                        lblFee.Text = "$" + mem_fee;
-                        lblStatus.Text = mem_status;
-                        lblSdate.Text = mem_Sdate;
-                        lblEdate.Text = mem_Edate;
-                        lblAmtdue.Text = lblFee.Text;
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    lblEx.Text = ex.Message;
-                    lblEx.Visible = true;
                 }
             }
             else
@@ -98,5 +94,6 @@ namespace Zenith_Fitness
                 Response.Redirect("SelectMembership.aspx");
             }
         }
+
     }
 }

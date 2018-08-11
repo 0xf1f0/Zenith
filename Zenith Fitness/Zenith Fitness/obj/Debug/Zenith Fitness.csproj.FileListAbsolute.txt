@@ -89,8 +89,9 @@ C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\roslyn\VBCS
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.csprojAssemblyReference.cache
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.csproj.CoreCompileInputs.cache
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.csproj.CopyComplete
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.dll
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.pdb
+C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll.CodeAnalysisLog.xml
+C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll.lastcodeanalysissucceeded

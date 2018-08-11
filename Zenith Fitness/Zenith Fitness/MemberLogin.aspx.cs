@@ -49,6 +49,7 @@ namespace Zenith_Fitness
 
                 catch (Exception ex)
                 {
+                    Console.Write($"Log: {0}", ex.Message);
                     lblEx.Text = ex.Message;
                     lblEx.Visible = true;
                 }
