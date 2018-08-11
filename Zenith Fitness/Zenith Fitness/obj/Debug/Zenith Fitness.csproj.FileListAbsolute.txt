@@ -38,6 +38,7 @@ C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith 
 C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.dll
 C:\Users\O\Desktop\Internet Prog\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.pdb
 C:\Users\O\Desktop\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.csprojResolveAssemblyReference.cache
+C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll.config
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.pdb
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\roslyn\csc.exe
@@ -92,5 +93,3 @@ C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenit
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.csproj.CopyComplete
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.dll
 C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.pdb
-C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\bin\Zenith Fitness.dll.config
-C:\Users\O\Documents\GitHub\Zenith\Zenith Fitness\Zenith Fitness\obj\Debug\Zenith Fitness.csprojAssemblyReference.cache

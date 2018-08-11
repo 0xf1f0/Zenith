@@ -16,15 +16,14 @@ namespace Zenith_Fitness
             {
                 currentUser.Text = Session["Username"].ToString();
                 var memId = int.Parse(Session["mem_id"].ToString());
+                const string cmd = "SELECT [member_id], [membership_name] ,[membership_status], [membership_start], [membership_end] FROM[dbo].[Membership] WHERE [member_id] = @memID;";
 
                 using (var userAcct = new SqlConnection(SqlDataSource1.ConnectionString))
                 {
                     userAcct.Open();
-                    // Retrieve member's membership information
-                    using (var checkUser = new SqlCommand("SELECT [member_id] ,[membership_name] " +
-                                                          ",[membership_status], [membership_start], [membership_end] FROM[dbo].[Membership] WHERE [member_id] = '" +
-                                                          memId + "'", userAcct))
+                    using (var checkUser = new SqlCommand(cmd, userAcct))
                     {
+                        checkUser.Parameters.AddWithValue("@memID", memId);
                         var reader = checkUser.ExecuteReader();
                         while (reader.Read())
                         {
@@ -42,7 +41,7 @@ namespace Zenith_Fitness
             }
         }
 
-        protected void lbSignout_Click(object sender, EventArgs e)
+        protected void LbSignout_Click(object sender, EventArgs e)
         {
             Session.RemoveAll();
             Response.Redirect("MemberLogin.aspx");

@@ -14,31 +14,30 @@ namespace Zenith_Fitness
         {
             var user = tbxUser.Text;
             var pwd = tbxPwd.Text;
+            const string cmd1 = "Select count(*) from [dbo].Member where member_username = @Username AND member_password = @Password COLLATE SQL_Latin1_General_CP1_CS_AS;";
+            const string cmd2 = "Select member_id from dbo.[Member] where member_username = @Username1;";
 
             Validate("Login");
             if (!Page.IsValid) return;
-            try
+            using (var userLogin = new SqlConnection(SqlDataSource1.ConnectionString))
             {
-                using (var userLogin = new SqlConnection(SqlDataSource1.ConnectionString))
+
+                // Verify that the Username and Password exist [Exact]
+                var checkUser = new SqlCommand(cmd1, userLogin);
+                checkUser.Parameters.AddWithValue("@Username", user);
+                checkUser.Parameters.AddWithValue("@Password", pwd);
+                try
                 {
                     userLogin.Open();
-
-                    // Verify that the Username and Password exist [Exact]
-                    var userFound = false;
-                    using (var checkUser = new SqlCommand("Select count(*) from [dbo].Member where member_username='" +
-                                                          user + "'" +
-                                                          "AND member_password='" + pwd + "'" +
-                                                          " COLLATE SQL_Latin1_General_CP1_CS_AS", userLogin))
-                    {
-                        checkUser.Parameters.AddWithValue("@Username", user);
-                        checkUser.Parameters.AddWithValue("@Password", pwd);
-
-                        userFound = (int) checkUser.ExecuteScalar() > 0;
-                    }
+                    var userFound = (int) checkUser.ExecuteScalar() > 0;
 
                     if (userFound)
                     {
                         Session["Username"] = user;
+                        var getId = new SqlCommand(cmd2, userLogin);
+                        getId.Parameters.AddWithValue("@Username1", user);
+                        var memId = Convert.ToInt32(getId.ExecuteScalar());
+                        Session["mem_id"] = memId;
                         Response.Redirect("MemberAccount.aspx");
                     }
                     else
@@ -46,35 +45,18 @@ namespace Zenith_Fitness
                         lblEx.Text = "Invalid username and/or password";
                         lblEx.Visible = true;
                     }
+                }
 
+                catch (Exception ex)
+                {
+                    lblEx.Text = ex.Message;
+                    lblEx.Visible = true;
+                }
+                finally
+                {
                     userLogin.Close();
                 }
             }
-
-            catch (Exception ex)
-            {
-                lblEx.Text = ex.Message;
-                lblEx.Visible = true;
-            }
-
-            //finally
-            //{
-            //    int memId;
-            //    using (var getUser = new SqlConnection(SqlDataSource1.ConnectionString))
-            //    {
-            //        getUser.Open();
-            //        using (var getId =
-            //            new SqlCommand("Select member_id from dbo.[Member] where member_username = '" + user + "'",
-            //                getUser))
-            //        {
-            //            memId = Convert.ToInt32(getId.ExecuteScalar());
-            //        }
-
-            //        getUser.Close();
-            //    }
-
-            //    Session["mem_id"] = memId;
-            //}
         }
     }
 }
