@@ -24,7 +24,7 @@
                 <asp:Label ID="currentUser" runat="server" ForeColor="#01A5CA" Text="Label"></asp:Label>
             </h2>
             <h2 style="float: right; text-align: right;">
-                <asp:LinkButton ID="lbSignout" runat="server" ForeColor="Red" OnClick="lbSignout_Click">Signout</asp:LinkButton>
+                <asp:LinkButton ID="lbSignout" runat="server" ForeColor="Red" OnClick="LbSignout_Click">Signout</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;&nbsp
             </h2>
         </div>
